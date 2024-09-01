@@ -1,0 +1,39 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+    %}
+    
+    <br>
+    <font color="green">
+
+            <h4>Available Parking Spots</h4>
+            <ul>
+                {% for spot in available_spots %}
+                    <Li>Spot Number: {{ spot[0] }}</li>
+                {% endfor %}
+        
+        </font>
+  
+    <hr  color="black"/>
+    <h4>Book a Parking Spot</h4>
+    <form action="/book_spot" method="post">
+        <label for="spot_number">Spot Number:</label>
+        <input type="text" id="spot_number" name="spot_number" required><br><br>
+        <label for="date_time">From Date and Time:</label>
+        <input type="datetime-local" id="to_date_time" name="to_date_time" required><br><br>
+        <label for="date_time">To Date and Time:</label>
+        <input type="datetime-local" id="from_date_time" name="from_date_time" required><br><br>
+        <input type="submit" value="Book Spot">
+    </form>
+
+    <br></br>
+    <hr color="black">
+    <font color="darkgreen">
+    <h4>Your Booked Spots</h4>
+    <ul>
+        {% for spot in booked_spots %}
+            <li>Spot Number: {{ spot[0] }}</li>
+        {% endfor %}
+    </ul>
+</font>
+    {% endblock %}
+
+  
